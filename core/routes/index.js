@@ -1,0 +1,1 @@
+exports.SaaSRegistryCallbacks = require('./SaaSRegistryCallbacks');

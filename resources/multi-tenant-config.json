@@ -1,0 +1,9 @@
+{
+  "appId": "[generated-xsappname]",
+  "appName": "jsmt-sample-[i-number]",
+  "appUrls": {
+    "getDependencies" : "https://jsmt-sample-core-[i-number].cfapps.sap.hana.ondemand.com/callback/v1.0/dependencies",
+    "onSubscription" : "https://jsmt-sample-core-[i-number].cfapps.sap.hana.ondemand.com/callback/v1.0/tenants/{tenantId}"
+  },
+  "providerTenantId" : "[paas-tenant-id]"
+}

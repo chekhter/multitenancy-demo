@@ -1,0 +1,28 @@
+---
+applications:
+- name: jsmt-sample-core
+  path: core
+  buildpack: nodejs_buildpack
+  memory: 256M
+  services:
+  - jsmt-sample-uaa
+  - jsmt-sample-jobscheduler
+  env:
+    SAP_JWT_TRUST_ACL: >
+      [
+        {"clientid":"*", "identityzone":"sap-provisioning"},
+        {"clientid":"<replace-with-client-id-from-jobscheduler-service-instance-credentials>", "identityzone":"*"}
+      ]
+
+- name: jsmt-sample-web
+  path: web
+  buildpack: nodejs_buildpack
+  memory: 256M
+  env:
+    destinations: >
+      [
+        {"name":"jsmt-sample-core","url":"https://jsmt-sample-core.cfapps.sap.hana.ondemand.com","forwardAuthToken": true}
+      ]
+    TENANT_HOST_PATTERN: "^(.*)-jsmt-sample-web.cfapps.sap.hana.ondemand.com"
+  services:
+  - jsmt-sample-uaa
