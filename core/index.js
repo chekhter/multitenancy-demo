@@ -52,7 +52,7 @@ app.get('/registerJob', hasScope('User'), async (req, res) => {
         logger.info(`Job registered for tenant (${req.authInfo.getIdentityZone()})`);
         res.status(201).json({
             message: `Job registered for tenant (${req.authInfo.getIdentityZone()})`,
-            jobInfo: jobDetails,
+            jobInfo: jobDetails.body,
         });
     } catch (error) {
         res.status(500).end(`Error occurred while creating job for tenant (${req.authInfo.getIdentityZone()})`);

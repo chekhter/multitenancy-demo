@@ -1,5 +1,5 @@
 {
-    "xsappname": "jobscheduler-multitenancy-sample",
+    "xsappname": "jsmt-sample-[i-number]",
     "tenant-mode": "shared",
     "scopes": [{
         "name": "$XSAPPNAME.User",

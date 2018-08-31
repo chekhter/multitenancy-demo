@@ -22,7 +22,7 @@ exports.subscribeTenant = (req, res) => {
     let payload = req.body;
     let subDomain = payload.subscribedSubdomain;
     logger.info(`Add subscription for tenant (${req.params.tenant_id}), subDomain (${subDomain}) in globalAccount (${payload.globalAccountGUID})`);
-    let url = `https://${subDomain}-jsmt-sample-web.cfapps.sap.hana.ondemand.com`;
+    let url = `https://${subDomain}-jsmt-sample-web-[i-number].cfapps.sap.hana.ondemand.com`;
     logger.info(`Sending tenant specific url (${url})`);
     res.status(200).send(url);
 };

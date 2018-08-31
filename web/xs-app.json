@@ -1,5 +1,9 @@
 {
     "welcomeFile": "index.html",
+    "logout": {
+        "logoutEndpoint": "/logout",
+        "logoutPage": "/"
+    },
     "routes": [{
         "source": "^/registerJob",
         "destination": "jsmt-sample-core",
