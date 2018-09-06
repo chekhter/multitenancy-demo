@@ -1,5 +1,50 @@
-<html>
-    <body>
-        Welcome
-    </body>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SAP Cloud Platform - Job Scheduler Sample Application">
+    <meta name="author" content="Jain Basil Aliyas">
+    <link rel="icon" href="../../../../favicon.ico">
+    <title>SAP Cloud Platform - Job Scheduler Sample Application</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/sticky-footer.css" rel="stylesheet">
+</head>
+
+<body>
+    <main role="main" class="container">
+        <h1 class="mt-5">Multitenancy in Job Scheduler</h1>
+        <p class="lead">Sample Application for Developers</p>
+
+        <div id="success-alert" class="alert alert-success" role="alert">
+            A sample job has been created on behalf of the tenant successfully.
+        </div>
+
+        <h5>Jobs</h5>
+        <table id="jobs" class="table">
+            <caption>These jobs were created on behalf SaaS tenant associated with the current logged in user</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Tenant ID</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <hr>
+        <button id="createJob" type="button" class="btn btn-primary">Create Job</button>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">&copy; SAP Cloud Platform</span>
+        </div>
+    </footer>
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/data.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+
 </html>

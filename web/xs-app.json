@@ -9,5 +9,13 @@
         "destination": "jsmt-sample-core",
         "httpMethods": ["GET"],
         "scope": "$XSAPPNAME.User"
+    }, {
+        "source": "^/getJobs",
+        "destination": "jsmt-sample-core",
+        "httpMethods": ["GET"],
+        "scope": "$XSAPPNAME.User"
+    }, {
+        "source": "^/(.*)$",
+        "localDir": "resources"
     }]
 }

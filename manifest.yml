@@ -1,6 +1,6 @@
 ---
 applications:
-- name: jsmt-sample-core-[i-number]
+- name: jsmt-sample-core-<i-number>
   path: core
   buildpack: nodejs_buildpack
   memory: 256M
@@ -11,18 +11,18 @@ applications:
     SAP_JWT_TRUST_ACL: >
       [
         {"clientid":"*", "identityzone":"sap-provisioning"},
-        {"clientid":"[replace-with-client-id-from-jobscheduler-service-instance-credentials]", "identityzone":"*"}
+        {"clientid":"<replace-with-client-id-from-jobscheduler-service-instance-credentials>", "identityzone":"*"}
       ]
 
-- name: jsmt-sample-web-[i-number]
+- name: jsmt-sample-web-<i-number>
   path: web
   buildpack: nodejs_buildpack
   memory: 256M
   env:
     destinations: >
       [
-        {"name":"jsmt-sample-core","url":"https://jsmt-sample-core.[CF_APPS_DOMAIN]","forwardAuthToken": true}
+        {"name":"jsmt-sample-core","url":"https://jsmt-sample-core-<i-number>.<CF_APPS_DOMAIN>","forwardAuthToken": true}
       ]
-    TENANT_HOST_PATTERN: "^(.*)-jsmt-sample-web.[CF_APPS_DOMAIN]"
+    TENANT_HOST_PATTERN: "^(.*)-jsmt-sample-web-<i-number>.<CF_APPS_DOMAIN>"
   services:
   - jsmt-sample-uaa

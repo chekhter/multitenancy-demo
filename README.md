@@ -1,6 +1,8 @@
 # multitenancy-demo
 A sample application that can be used for jobscheduler multitenancy development/demo
 
+![application screenshot](images/app.png)
+
 ## Installation
 
 **Prepare Files**
@@ -44,6 +46,10 @@ Using `manifest.yml`, push the application
 
 This step will deploy 2 applications - `jsmt-sample-web` and `jsmt-sample-core`
 
+**Configure XSUAA Service**
+
+**Configure SaaS Registry Service**
+
 ## Subscriptions
 
-TBA
+* Launch SAP Cloud Platform Cockpit and navigate to the Global Account and Sub Account where 

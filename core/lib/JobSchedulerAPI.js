@@ -14,31 +14,6 @@ let jobschedulerCredentials = xsenv.getServices({
     },
 }).jobscheduler;
 
-// function _validateResponse(response, expectedStatusCode) {
-//     return response.statusCode === expectedStatusCode;
-// }
-
-// function _getResponseBody(response) {
-//     if(!_validateResponse(response, 200)) {
-//         throw new Error('Error validating response');
-//     }
-//     try {
-//         return JSON.parse(response.body);
-//     } catch(err) {
-//         throw new Error('Error parsing request body');
-//     }
-// }
-
-// function _jobSchedulerGetAPIPromise(api, bearerToken) {
-//     logger.info(`Invoking jobscheduler api (${api}) using token: ${bearerToken}`);
-//     return request.getAsync({
-//         url: `${jobschedulerCredentials.url}/${api}`,
-//         headers : {
-//             'Authorization' : 'Bearer ' + bearerToken,
-//         },
-//     });
-// }
-
 function _jobSchedulerPostAPIPromise(api, body, bearerToken) {
     logger.info(`Invoking jobscheduler api (${api}) using token: ${bearerToken}`);
     return request.postAsync({
@@ -48,6 +23,17 @@ function _jobSchedulerPostAPIPromise(api, body, bearerToken) {
             'Content-type': 'application/json',
         },
         json: body,
+    });
+}
+
+function _jobSchedulerGetAPIPromise(api, bearerToken) {
+    logger.info(`Invoking jobscheduler api (${api}) using token: ${bearerToken}`);
+    return request.getAsync({
+        url: `${jobschedulerCredentials.url}/scheduler/${api}`,
+        headers : {
+            'Authorization' : 'Bearer ' + bearerToken,
+            'Content-type': 'application/json',
+        },
     });
 }
 
@@ -84,7 +70,7 @@ class JobSchedulerAPI {
             return await _jobSchedulerPostAPIPromise('jobs', {
                 'name': randomstring.generate(12),
                 'description': 'Job created for tenant: ' + request.authInfo.getIdentityZone(),
-                'action': 'https://jsmt-sample-core.cfapps.sap.hana.ondemand.com/executeJob',
+                'action': 'https://jsmt-sample-core-i073141.cfapps.sap.hana.ondemand.com/executeJob',
                 'active': true,
                 'httpMethod': 'GET',
                 'schedules': [{
@@ -95,6 +81,17 @@ class JobSchedulerAPI {
             }, token);
         } catch(error) {
             logger.error('Error occurred while creating job');
+            logger.error(error);
+            return null;
+        }
+    }
+
+    static async getJobs(request) {
+        try {
+            let token = await getAccessToken(request, xssec.constants.TYPE_USER_TOKEN);
+            return await _jobSchedulerGetAPIPromise('jobs', token);
+        } catch(error) {
+            logger.error('Error occurred while fetching job');
             logger.error(error);
             return null;
         }

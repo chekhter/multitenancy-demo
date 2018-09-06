@@ -59,6 +59,17 @@ app.get('/registerJob', hasScope('User'), async (req, res) => {
     }
 });
 
+app.get('/getJobs', hasScope('User'), async (req, res) => {
+    logger.info('Request to fetch all jobs has been received');
+    try {
+        let jobResponse = await JobSchedulerAPI.getJobs(req);
+        let allJobs = JSON.parse(jobResponse.body);
+        res.status(201).json(allJobs);
+    } catch (error) {
+        res.status(500).end(`Error occurred while fetching jobs for tenant (${req.authInfo.getIdentityZone()})`);
+    }
+});
+
 app.get('/executeJob', hasScope('JOBSCHEDULER'), (req, res) => {
     res.status(200).json({
         'message': `Job executed successfully on behalf of tenant (${req.authInfo.getIdentityZone()})`,
