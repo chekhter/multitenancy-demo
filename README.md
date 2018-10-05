@@ -12,7 +12,7 @@ A sample application that can be used for jobscheduler multitenancy development/
 **Prepare xs-security.json**
 
 - Open `resources/xs-security.json` file using editor
-- Replace `[i-number]` with your SAP I-Number
+- Replace `D041287` with your SAP Number
 
 **Create service instances**
 
