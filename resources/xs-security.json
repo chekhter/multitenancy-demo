@@ -1,5 +1,5 @@
 {
-    "xsappname": "jsmt-sample-<i-number>",
+    "xsappname": "jsmt-sample-core-d041287",
     "tenant-mode": "shared",
     "scopes": [{
         "name": "$XSAPPNAME.User",
@@ -7,13 +7,11 @@
     }, {
         "name": "$XSAPPNAME.JOBSCHEDULER",
         "description": "With this scope set, Job Scheduler service will be able to invoke the endpoints",
-        "grant-as-authority-to-apps": []
+        "grant-as-authority-to-apps": ["jobscheduler"]
     }, {
         "name": "$XSAPPNAME.Callback",
         "description": "With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called.",
-        "grant-as-authority-to-apps": [
-            "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
-        ]
+        "grant-as-authority-to-apps": ["$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"]
     }],
     "role-templates": [{
         "name": "DefaultRole",

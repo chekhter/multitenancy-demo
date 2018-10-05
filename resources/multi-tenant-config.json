@@ -1,9 +1,12 @@
 {
-  "appId": "<replace-with-xsappname-from-xsuaa-credentials>",
-  "appName": "jsmt-sample-<i-number>",
+  "appId": "6dc2fbbe-5682-41c5-b4ad-7e4147f6e3b6",
+  "appName": "jsmt-sample-core-d041287",
   "appUrls": {
-    "getDependencies" : "https://jsmt-sample-core-<i-number>.cfapps.sap.hana.ondemand.com/callback/v1.0/dependencies",
-    "onSubscription" : "https://jsmt-sample-core-<i-number>.cfapps.sap.hana.ondemand.com/callback/v1.0/tenants/{tenantId}"
+    "getDependencies" : "https://jsmt-sample-core-d041287.cfapps.sap.hana.ondemand.com/callback/v1.0/dependencies",
+    "onSubscription" : "https://jsmt-sample-core-d041287.cfapps.sap.hana.ondemand.com/callback/v1.0/tenants/chekhter"
   },
-  "providerTenantId" : "<replace-with-tenantid-from-xsuaa-credentials>"
+  "providerTenantId" : "c0e350fe-05fa-4239-8faa-aebdb60ee2fc",
+  "displayName" : "Sample jobscheduler d041287",
+  "description": "Sample jobscheduler multitenant application",
+  "category" : "SaaS"
 }

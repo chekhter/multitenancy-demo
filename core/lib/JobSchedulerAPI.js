@@ -70,7 +70,7 @@ class JobSchedulerAPI {
             return await _jobSchedulerPostAPIPromise('jobs', {
                 'name': randomstring.generate(12),
                 'description': 'Job created for tenant: ' + request.authInfo.getIdentityZone(),
-                'action': 'https://jsmt-sample-core-i073141.cfapps.sap.hana.ondemand.com/executeJob',
+                'action': 'https://jsmt-sample-core-d041287.cfapps.sap.hana.ondemand.com/executeJob',
                 'active': true,
                 'httpMethod': 'GET',
                 'schedules': [{

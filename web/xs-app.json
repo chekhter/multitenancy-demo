@@ -6,15 +6,21 @@
     },
     "routes": [{
         "source": "^/registerJob",
-        "destination": "jsmt-sample-core",
+        "destination": "jsmt-sample-core-dest",
         "httpMethods": ["GET"],
         "scope": "$XSAPPNAME.User"
     }, {
         "source": "^/getJobs",
-        "destination": "jsmt-sample-core",
+        "destination": "jsmt-sample-core-dest",
         "httpMethods": ["GET"],
         "scope": "$XSAPPNAME.User"
     }, {
+        "source": "^/testEndpoint",
+        "target": "/testEndpoint",
+        "destination": "jsmt-sample-endpoint-dest",
+        "httpMethods": ["GET"],
+        "scope": "$XSAPPNAME.JOBSCHEDULER"
+    },{
         "source": "^/(.*)$",
         "localDir": "resources"
     }]

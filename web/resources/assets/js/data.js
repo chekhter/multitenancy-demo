@@ -5,10 +5,7 @@ $(document).ready(function () {
 
 $("#createJob").click(function () {
     $("#createJob").addClass('disabled');
-    $.ajax({
-        url: '/registerJob',
-        dataType: 'json',
-    }).done(function () {
+    $.ajax({url: '/registerJob', dataType: 'json'}).done(function() {
         jobCreateAlert();
         fetchJobs();
         $("#createJob").removeClass('disabled');
@@ -22,10 +19,7 @@ function jobCreateAlert() {
 }
 
 function fetchJobs() {
-    var jobs = $.ajax({
-        url: '/getJobs',
-        dataType: 'json',
-    }).done(function (result) {
+    var jobs = $.ajax({url: '/getJobs', dataType: 'json'}).done(function (result) {
         displayJobs(result);
     });
 }
