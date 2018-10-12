@@ -6,7 +6,7 @@ module.exports = {
 	    'name': randomstring.generate(12),
 	    'description': 'Job created',
 	    'httpMethod': 'GET',
-	    'action': 'https://jsmt-sample-web-d041287.cfapps.sap.hana.ondemand.com/testEndpoint',
+	    'action': 'https://jsmt-sample-endpoint-d041287.cfapps.sap.hana.ondemand.com/testEndpoint',
 	    'active': true,
 	    'schedules': [{
 	        'cron': '* * * * */1 0 0',
